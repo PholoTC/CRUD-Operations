@@ -49,7 +49,7 @@ namespace CRUD_Operations
             try
             {
                 SqlCommand comm = new SqlCommand("exec dbo.SP_InsertProduct '" +
-                    +int.Parse(txtProdId.Text) + "', '" + txtName.Text + "', '" + comboxColor.Text + "', '" + "', '" +
+                    +int.Parse(txtProdId.Text) + "', '" + txtName.Text + "', '" + comboxColor.Text + "', '" +status+ "', '" +
                     DateTime.Parse(datePick.Text) + "'", sqlCon);
                 comm.ExecuteNonQuery();
                 MessageBox.Show("Create Successfully");
