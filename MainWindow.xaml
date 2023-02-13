@@ -5,30 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD_Operations"
         mc:Ignorable="d"
-        Title="MainWindow" Height="702" Width="580">
-    <Grid OpacityMask="Black" Background="#FF129F9E" Margin="32,0,54,0" Height="630" VerticalAlignment="Center">
+        Title="MainWindow" Height="522" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center">
+    <Grid OpacityMask="Black" Background="#FF129F9E" Margin="32,10,54,0" Height="484" VerticalAlignment="Top">
         <Label x:Name="label" Content="CRUD Operations in C# using SP Connections" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="450" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label x:Name="labelID" Content="Product ID" HorizontalAlignment="Left" Margin="33,76,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
-        <Label x:Name="labelname" Content="Product Name" HorizontalAlignment="Left" Margin="33,139,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
-        <Label x:Name="labelcolor" Content="Colour" HorizontalAlignment="Left" Margin="33,191,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
-        <Label x:Name="labelDate" Content="Expiry Date" HorizontalAlignment="Left" Margin="33,306,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="labelname" Content="Product Name" HorizontalAlignment="Left" Margin="33,125,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
+        <Label x:Name="labelcolor" Content="Colour" HorizontalAlignment="Left" Margin="33,165,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="labelDate" Content="Expiry Date" HorizontalAlignment="Left" Margin="33,237,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
         <TextBox x:Name="txtProdId" HorizontalAlignment="Left" Margin="172,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="24"/>
-        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="172,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="24"/>
-        <RadioButton x:Name="radRunning" Content="Running" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
-        <RadioButton x:Name="radUnused" Content="Unused" HorizontalAlignment="Left" Margin="342,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
-        <DatePicker x:Name="datePick" HorizontalAlignment="Left" Margin="172,311,0,0" VerticalAlignment="Top" Width="229" IsDropDownOpen="False" Text="06/02/2023"/>
-        <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="80,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="98" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnInsert_Click"/>
-        <ComboBox x:Name="comboxColor" HorizontalAlignment="Left" Margin="172,198,0,0" VerticalAlignment="Top" Width="238" Height="22" Text="Select Color" BorderBrush="#FF0DF1D0" Foreground="#FF0A0A0A">
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="172,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="24"/>
+        <RadioButton x:Name="radRunning" Content="Running" HorizontalAlignment="Left" Margin="172,208,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
+        <RadioButton x:Name="radUnused" Content="Unused" HorizontalAlignment="Left" Margin="342,208,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
+        <DatePicker x:Name="datePick" HorizontalAlignment="Left" Margin="172,241,0,0" VerticalAlignment="Top" Width="229" IsDropDownOpen="False" Text="06/02/2023"/>
+        <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="39,279,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="110" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnInsert_Click"/>
+        <ComboBox x:Name="comboxColor" HorizontalAlignment="Left" Margin="172,172,0,0" VerticalAlignment="Top" Width="238" Height="22" Text="Select Color" BorderBrush="#FF0DF1D0" Foreground="#FF0A0A0A">
             <ComboBoxItem Content="Red" IsSelected="True"/>
             <ComboBoxItem Content="Blue"/>
             <ComboBoxItem Content="Green"/>
             <ComboBoxItem Content="Black"/>
             <ComboBoxItem Content="Orange"/>
         </ComboBox>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="209,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="96" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnUpdate_Click"/>
-        <Label x:Name="lblCatergory" Content="Catergory" HorizontalAlignment="Left" Margin="33,252,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
-        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="0,423,0,91" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"  
-            GridLinesVisibility="None" HeadersVisibility="All" BorderBrush="LightGray" BorderThickness="3" IsReadOnly="True" HorizontalAlignment="Right" Width="494"  />
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="332,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="96" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnDelete_Click"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="183,279,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="108" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnUpdate_Click"/>
+        <Label x:Name="lblCatergory" Content="Catergory" HorizontalAlignment="Left" Margin="33,202,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <DataGrid x:Name="dataGrid"  AutoGenerateColumns="False" Margin="0,320,0,17" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"  
+            GridLinesVisibility="None" HeadersVisibility="All" BorderBrush="LightGray" BorderThickness="3" IsReadOnly="True" HorizontalAlignment="Center" Width="474">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product ID" Width="70" Binding="{Binding ProductId}"/>
+                <DataGridTextColumn Header="Product Name" Width="120" Binding="{Binding ProductName}"/>
+                <DataGridTextColumn Header="Product Color" Width="80" Binding="{Binding Coloour}"/>
+                <DataGridTextColumn Header="Status" Width="60" Binding="{Binding Status}"/>
+                <DataGridTextColumn Header="Expiry Date" Width="130" Binding="{Binding Expirydate}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="321,279,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="107" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnDelete_Click"/>
+        <Button x:Name="btnSearch" Content="&#x1F50D;" HorizontalAlignment="Left" Margin="410,81,0,0" VerticalAlignment="Top" Height="24" RenderTransformOrigin="-3.558,1.735" Width="25" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnSearch_Click">
+
+        </Button>
+
+
     </Grid>
 </Window>

@@ -27,15 +27,12 @@ namespace CRUD_Operations
         {
             InitializeComponent();
             LoadAllrecords();
+            txtProdId.Text = string.Empty;
         }
        
         SqlConnection sqlCon = 
             new SqlConnection("Data Source=RYZEN-3;Initial Catalog=CRUD_SP_DB;Integrated Security=True");
 
-        private void Form1_Load (object sender, EventArgs e)
-        {
-            LoadAllrecords();
-        }
         private void btnInsert_Click(object sender, RoutedEventArgs e)
         {
             sqlCon.Open();
@@ -62,7 +59,6 @@ namespace CRUD_Operations
         void LoadAllrecords()
         {
             SqlCommand comm = new SqlCommand("exec dbo.SP_ProductView", sqlCon);
-            MessageBox.Show("Display Successfully");
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(comm);
             DataTable dataTable= new DataTable("Products");
             sqlAdapter.Fill(dataTable);
@@ -75,11 +71,11 @@ namespace CRUD_Operations
             string status = "";
             if (radRunning.IsChecked == true)
             {
-                status = radRunning.Name;
+                status = "Runnning";
             }
             else if (radUnused.IsChecked == true)
             {
-                status = radUnused.Name;
+                status = "UnUsed";
             }
             SqlCommand comm = new SqlCommand("exec dbo.SP_UpdateProduct '" +
                 +int.Parse(txtProdId.Text) + "', '" + txtName.Text + "', '" + comboxColor.Text + "', '" + status +"', '" +
@@ -92,14 +88,53 @@ namespace CRUD_Operations
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            sqlCon.Open();
-            
-            SqlCommand comm = new SqlCommand("exec dbo.SP_DeleteProduct '" +
-                +int.Parse(txtProdId.Text) + "'", sqlCon);
-            comm.ExecuteNonQuery();
-            MessageBox.Show("Deleted Successfully");
-            LoadAllrecords();
-            sqlCon.Close();
+
+            if(txtProdId.Text.Length != 0 )
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
+
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    sqlCon.Open();
+
+
+                    SqlCommand comm = new SqlCommand("exec dbo.SP_DeleteProduct '" +
+                        +int.Parse(txtProdId.Text) + "'", sqlCon);
+                    comm.ExecuteNonQuery();
+                    MessageBox.Show("Deleted Successfully");
+                    LoadAllrecords();
+                    sqlCon.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Not deleted");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Enter a Valid Product ID");
+            }         
+        }
+
+        private void btnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            if(txtProdId.Text!= string.Empty )
+            {
+                sqlCon.Open();
+
+
+                SqlCommand comm = new SqlCommand("exec dbo.SP_ProductSearch '" +
+                    +int.Parse(txtProdId.Text) + "'", sqlCon);
+                comm.ExecuteNonQuery();
+
+                SqlDataAdapter sqlAdapter = new SqlDataAdapter(comm);
+                DataTable dataTable = new DataTable("Products");
+                sqlAdapter.Fill(dataTable);
+                dataGrid.ItemsSource = dataTable.DefaultView;
+
+
+                sqlCon.Close();
+            }
         }
     }
 }
