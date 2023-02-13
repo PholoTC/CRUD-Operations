@@ -28,9 +28,10 @@ namespace CRUD_Operations
             InitializeComponent();
             LoadAllrecords();
             txtProdId.Text = string.Empty;
+           
         }
-       
-        SqlConnection sqlCon = 
+
+        SqlConnection sqlCon =
             new SqlConnection("Data Source=RYZEN-3;Initial Catalog=CRUD_SP_DB;Integrated Security=True");
 
         private void btnInsert_Click(object sender, RoutedEventArgs e)
@@ -54,13 +55,14 @@ namespace CRUD_Operations
                 MessageBox.Show("Create Successfully");
                 LoadAllrecords();
                 sqlCon.Close();
-            } catch(Exception ex) {MessageBox.Show(ex.Message); }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         void LoadAllrecords()
         {
             SqlCommand comm = new SqlCommand("exec dbo.SP_ProductView", sqlCon);
             SqlDataAdapter sqlAdapter = new SqlDataAdapter(comm);
-            DataTable dataTable= new DataTable("Products");
+            DataTable dataTable = new DataTable("Products");
             sqlAdapter.Fill(dataTable);
             dataGrid.ItemsSource = dataTable.DefaultView;
         }
@@ -78,7 +80,7 @@ namespace CRUD_Operations
                 status = "UnUsed";
             }
             SqlCommand comm = new SqlCommand("exec dbo.SP_UpdateProduct '" +
-                +int.Parse(txtProdId.Text) + "', '" + txtName.Text + "', '" + comboxColor.Text + "', '" + status +"', '" +
+                +int.Parse(txtProdId.Text) + "', '" + txtName.Text + "', '" + comboxColor.Text + "', '" + status + "', '" +
                 DateTime.Parse(datePick.Text) + "'", sqlCon);
             comm.ExecuteNonQuery();
             MessageBox.Show("Update Successfully");
@@ -89,7 +91,7 @@ namespace CRUD_Operations
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
 
-            if(txtProdId.Text.Length != 0 )
+            if (txtProdId.Text.Length != 0)
             {
                 MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Are you sure?", "Delete Confirmation", System.Windows.MessageBoxButton.YesNo);
 
@@ -113,12 +115,12 @@ namespace CRUD_Operations
             else
             {
                 MessageBox.Show("Enter a Valid Product ID");
-            }         
+            }
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            if(txtProdId.Text!= string.Empty )
+            if (txtProdId.Text != string.Empty)
             {
                 sqlCon.Open();
 
@@ -134,6 +136,11 @@ namespace CRUD_Operations
 
 
                 sqlCon.Close();
+            }
+            else
+            {
+                MessageBox.Show("Enter a Valid Product ID");
+
             }
         }
     }

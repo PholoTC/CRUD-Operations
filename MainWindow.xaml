@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD_Operations"
         mc:Ignorable="d"
-        Title="MainWindow" Height="522" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center">
+        Title="Product Management" Height="522" Width="580" VerticalAlignment="Center" HorizontalAlignment="Center" >
     <Grid OpacityMask="Black" Background="#FF129F9E" Margin="32,10,54,0" Height="484" VerticalAlignment="Top">
         <Label x:Name="label" Content="CRUD Operations in C# using SP Connections" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="450" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label x:Name="labelID" Content="Product ID" HorizontalAlignment="Left" Margin="33,76,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
