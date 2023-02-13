@@ -5,8 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CRUD_Operations"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+        Title="MainWindow" Height="702" Width="580">
+    <Grid OpacityMask="Black" Background="#FF129F9E" Margin="32,0,54,0" Height="630" VerticalAlignment="Center">
+        <Label x:Name="label" Content="CRUD Operations in C# using SP Connections" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="450" FontSize="20" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="labelID" Content="Product ID" HorizontalAlignment="Left" Margin="33,76,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
+        <Label x:Name="labelname" Content="Product Name" HorizontalAlignment="Left" Margin="33,139,0,0" Width="176" FontSize="14" Foreground="White" FontWeight="Bold" VerticalAlignment="Top"/>
+        <Label x:Name="labelcolor" Content="Colour" HorizontalAlignment="Left" Margin="33,191,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <Label x:Name="labelDate" Content="Expiry Date" HorizontalAlignment="Left" Margin="33,306,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <TextBox x:Name="txtProdId" HorizontalAlignment="Left" Margin="172,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="24"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Margin="172,144,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="238" Height="24"/>
+        <RadioButton x:Name="radRunning" Content="Running" HorizontalAlignment="Left" Margin="172,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
+        <RadioButton x:Name="radUnused" Content="Unused" HorizontalAlignment="Left" Margin="342,258,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="#FFF9EFEF"/>
+        <DatePicker x:Name="datePick" HorizontalAlignment="Left" Margin="172,311,0,0" VerticalAlignment="Top" Width="229" IsDropDownOpen="False" Text="06/02/2023"/>
+        <Button x:Name="btnInsert" Content="Insert" HorizontalAlignment="Left" Margin="80,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="98" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnInsert_Click"/>
+        <ComboBox x:Name="comboxColor" HorizontalAlignment="Left" Margin="172,198,0,0" VerticalAlignment="Top" Width="238" Height="22" Text="Select Color" BorderBrush="#FF0DF1D0" Foreground="#FF0A0A0A">
+            <ComboBoxItem Content="Red" IsSelected="True"/>
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="Green"/>
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="Orange"/>
+        </ComboBox>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="209,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="96" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnUpdate_Click"/>
+        <Label x:Name="lblCatergory" Content="Catergory" HorizontalAlignment="Left" Margin="33,252,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Foreground="White"/>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=3}" Margin="0,423,0,91" Background="LightGray" RowBackground="LightYellow" AlternatingRowBackground="LightBlue"  
+            GridLinesVisibility="None" HeadersVisibility="All" BorderBrush="LightGray" BorderThickness="3" IsReadOnly="True" HorizontalAlignment="Right" Width="494"  />
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="332,363,0,0" VerticalAlignment="Top" Height="32" RenderTransformOrigin="-3.558,1.735" Width="96" Foreground="#FFF9F9F9" BorderBrush="#FFF3EBEB" Background="#FF1E68B0" FontWeight="Bold" FontSize="16" Click="btnDelete_Click"/>
     </Grid>
 </Window>
